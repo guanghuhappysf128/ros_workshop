@@ -27,13 +27,13 @@
      pub.publish(str);
 
      ros::Rate loop_rate(10);
-    //  while(ros::ok())
-    //  {
-    //     pub.publish(str);
-    //     ros::spinOnce();
-    //     loop_rate.sleep();
-    //  }
-    ros::spinOnce();
+     while(ros::ok())
+     {
+        pub.publish(str);
+        ros::spinOnce();
+        loop_rate.sleep();
+     }
+    //ros::spinOnce();
      //...
      // If remove this, it will stopped directly.
      // It looks like it is waiting for something, not sure what it is.
