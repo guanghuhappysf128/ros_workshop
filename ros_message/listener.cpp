@@ -2,21 +2,21 @@
 #include <signal.h>
 #include "std_msgs/String.h"
   
-   void mySigintHandler(int sig)
-   {
-       //triggered by rosnode kill /node_name
-     // Do some custom action.
-     // For example, publish a stop message to some other nodes.
-     
-     // All the default sigint handler does is call shutdown()
-     ros::shutdown();
-   }
+void mySigintHandler(int sig)
+{
+    //triggered by rosnode kill /node_name
+    // Do some custom action.
+    // For example, publish a stop message to some other nodes.
+    
+    // All the default sigint handler does is call shutdown()
+    ros::shutdown();
+}
 
 
 void callback(const std_msgs::String::ConstPtr& str)
 {
     printf("The message is %s\n", str->data.c_str());
-    ROS_INFO("The message is %s",str);
+    ROS_INFO("The message is %s",*str);
 }
    
 int main(int argc, char** argv)
